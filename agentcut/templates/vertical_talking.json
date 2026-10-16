@@ -1,0 +1,102 @@
+{
+  "version": "1.0",
+  "_description": "9:16 vertical talking-head video with dialogue, ducked background music bed, and burned-in captions.",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "background": "black"
+  },
+  "output": {
+    "path": "vertical_talking_out.mp4",
+    "loudnorm_lufs": -14
+  },
+  "tracks": [
+    {
+      "type": "video",
+      "fit": "crop",
+      "clips": [
+        {
+          "source": "scene1.mp4",
+          "start": 0,
+          "in": 0,
+          "out": 8,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.4
+          }
+        },
+        {
+          "source": "scene2.mp4",
+          "start": 8,
+          "in": 0,
+          "out": 7,
+          "transition_in": {
+            "type": "dissolve",
+            "duration": 0.4
+          }
+        }
+      ]
+    },
+    {
+      "type": "audio",
+      "role": "dialogue",
+      "clips": [
+        {
+          "source": "vo_scene1.mp3",
+          "start": 0.4,
+          "volume": 1.0
+        },
+        {
+          "source": "vo_scene2.mp3",
+          "start": 8.3,
+          "volume": 1.0
+        }
+      ]
+    },
+    {
+      "type": "audio",
+      "role": "music",
+      "clips": [
+        {
+          "source": "music_bed.mp3",
+          "start": 0,
+          "duration": 15,
+          "volume": 0.3,
+          "fade_in": 0.5,
+          "fade_out": 1.5,
+          "duck_under_dialogue": true
+        }
+      ]
+    },
+    {
+      "type": "captions",
+      "style": {
+        "font_size": 64,
+        "color": "white",
+        "stroke_color": "black",
+        "stroke_width": 4,
+        "position": "bottom",
+        "bold": true
+      },
+      "segments": [
+        {
+          "start": 0.4,
+          "end": 3.5,
+          "text": "Stop editing videos by hand when agents can render deterministically",
+          "highlight": true
+        },
+        {
+          "start": 3.8,
+          "end": 7.6,
+          "text": "Write a single JSON timeline and get a finished MP4 back"
+        },
+        {
+          "start": 8.3,
+          "end": 14.5,
+          "text": "Every audio channel and loudness target is verified automatically"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "version": "1.0",
+  "_description": "Black-and-white monochrome grade on the video track, animated emoji overlay slots, and laugh-track audio slot.",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "background": "black"
+  },
+  "output": {
+    "path": "meme_edit_out.mp4",
+    "loudnorm_lufs": -14
+  },
+  "tracks": [
+    {
+      "type": "video",
+      "grade": "bw",
+      "fit": "crop",
+      "clips": [
+        {
+          "source": "setup_clip.mp4",
+          "start": 0,
+          "in": 0,
+          "out": 5,
+          "transition_in": {
+            "type": "fade",
+            "duration": 0.3
+          }
+        },
+        {
+          "source": "punchline_clip.mp4",
+          "start": 5,
+          "in": 0,
+          "out": 5,
+          "transition_in": {
+            "type": "dissolve",
+            "duration": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "type": "overlay",
+      "clips": [
+        {
+          "source": "emoji_skull.png",
+          "start": 1.2,
+          "duration": 2.0,
+          "x": 0.8,
+          "y": 0.2,
+          "scale": 0.2,
+          "animation": "pop"
+        },
+        {
+          "source": "emoji_laugh.png",
+          "start": 5.3,
+          "duration": 3.5,
+          "x": 0.22,
+          "y": 0.2,
+          "scale": 0.22,
+          "animation": "bounce"
+        }
+      ]
+    },
+    {
+      "type": "audio",
+      "role": "dialogue",
+      "clips": [
+        {
+          "source": "dialogue.mp3",
+          "start": 0.2,
+          "duration": 4.6,
+          "volume": 1.0
+        }
+      ]
+    },
+    {
+      "type": "audio",
+      "role": "sfx",
+      "clips": [
+        {
+          "source": "laugh_track.mp3",
+          "start": 5.1,
+          "duration": 4.5,
+          "volume": 0.85,
+          "fade_in": 0.1,
+          "fade_out": 0.8
+        }
+      ]
+    },
+    {
+      "type": "captions",
+      "style": {
+        "font_size": 68,
+        "color": "yellow",
+        "stroke_color": "black",
+        "stroke_width": 5,
+        "position": "bottom",
+        "bold": true
+      },
+      "segments": [
+        {
+          "start": 0.3,
+          "end": 4.7,
+          "text": "When the AI agent says the video is ready in one shot",
+          "highlight": true
+        },
+        {
+          "start": 5.2,
+          "end": 9.5,
+          "text": "And both stereo channels actually pass the loudness check"
+        }
+      ]
+    }
+  ]
+}
